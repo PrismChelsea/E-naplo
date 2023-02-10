@@ -36,6 +36,10 @@ namespace E_Naplo
             {
                 startsbutton.IsEnabled = true;
             }
+            else
+            {
+                startsbutton.IsEnabled = false;
+            }
         }
 
         private void jelszo_PasswordChanged(object sender, RoutedEventArgs e)
@@ -43,6 +47,10 @@ namespace E_Naplo
             if (felhasznalo.Text != "" && jelszo.Password != "")
             {
                 startsbutton.IsEnabled = true;
+            }
+            else
+            {
+                startsbutton.IsEnabled = false;
             }
         }
 

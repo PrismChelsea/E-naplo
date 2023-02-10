@@ -19,7 +19,40 @@
     </Window.Resources>
 
     <Grid>
-        <DataGrid RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle1}" x:Name="datas" AlternatingRowBackground="#FFFF7F35" AlternationCount="2" HorizontalAlignment="Left" Height="400" Margin="10,24,0,0" VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=4}" MinColumnWidth="100" Background="#FFFF7F35" Width="600" BorderBrush="#FFFF7F35"/>
+        <DataGrid RowHeaderStyle="{DynamicResource DataGridRowHeaderStyle1}" Foreground="Black" x:Name="datas" AlternationCount="6" HorizontalAlignment="Left" Height="400" Margin="10,24,0,0" VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=4}" MinColumnWidth="100" Background="#FFFF7F35" Width="600" BorderBrush="#FFFF7F35">
+            <DataGrid.RowStyle>
+                <Style TargetType="{x:Type DataGridRow}">
+                <Setter Property="Background" Value="Blue"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Style.Triggers>
+                    <Trigger Property="DataGrid.AlternationIndex" Value="0">
+                            <Setter Property="Background" Value="Red"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    <Trigger Property="DataGrid.AlternationIndex" Value="1">
+                            <Setter Property="Background" Value="Orange"/>
+                            <Setter Property="Foreground" Value="#FF3C3C3C"/>
+                        </Trigger>
+                        <Trigger Property="DataGrid.AlternationIndex" Value="2">
+                            <Setter Property="Background" Value="Yellow"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="DataGrid.AlternationIndex" Value="3">
+                            <Setter Property="Background" Value="DarkGreen"/>
+                            <Setter Property="Foreground" Value="#FF3C3C3C"/>
+                        </Trigger>
+                        <Trigger Property="DataGrid.AlternationIndex" Value="4">
+                            <Setter Property="Background" Value="Blue"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                        <Trigger Property="DataGrid.AlternationIndex" Value="5">
+                            <Setter Property="Background" Value="Purple"/>
+                            <Setter Property="Foreground" Value="#FF3C3C3C"/>
+                        </Trigger>
+                    </Style.Triggers>
+            </Style>
+        </DataGrid.RowStyle>
+        </DataGrid>
         <Button x:Name="searchbutton" Content="Keresés" HorizontalAlignment="Left" Height="25" Margin="671,126,0,0" VerticalAlignment="Top" Width="150" FontSize="15" Click="searchbutton_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="White" BorderBrush="#FFFFA464"/>
         <TextBox x:Name="searchtext" HorizontalAlignment="Left" Height="25" Margin="671,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="#FFFF7F35"/>
         <ComboBox x:Name="selectsearch" HorizontalAlignment="Left" Height="25" Margin="671,66,0,0" VerticalAlignment="Top" Width="150" BorderBrush="#FFFF7F35">
@@ -33,8 +66,5 @@
         <Button x:Name="CreateButton" Content="Létrehozás" HorizontalAlignment="Left" Height="35" Margin="688,389,0,0" VerticalAlignment="Top" Width="116" Click="CreateButton_Click" Background="White" BorderBrush="#FFFF7F35"/>
         <Button x:Name="newmark" Content="Jegyek megtekintése" HorizontalAlignment="Left" Height="24" Margin="671,212,0,0" VerticalAlignment="Top" Width="150" Click="newmark_Click" FontSize="15" Background="White" BorderBrush="#FFFF7F35"/>
         <Button x:Name="kilepesgomb" Content="Kilépés" HorizontalAlignment="Right" Margin="0,0,45,45" VerticalAlignment="Bottom" Click="kilepesgomb_Click" Background="#FFED0F0F"/>
-
     </Grid>
-
-
 </Window>

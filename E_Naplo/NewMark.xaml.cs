@@ -21,7 +21,7 @@ namespace E_Naplo
     /// </summary>
     public partial class NewMark : Window
     {
-        List<Jegyek> jegyek = new List<Jegyek>();
+       public  List<Jegyek> jegyek = new List<Jegyek>();
 
         public NewMark()
         {
@@ -55,6 +55,7 @@ namespace E_Naplo
             }
             grades.ItemsSource = jegyek;
 
+           
         }
 
         private void averagebutton_Click(object sender, RoutedEventArgs e)
@@ -83,6 +84,13 @@ namespace E_Naplo
 
         private void studentbutton_Click(object sender, RoutedEventArgs e)
         {
+            List<ReadIn> enaplo = new List<ReadIn>();
+                var srchname = jegyek
+                  .Where(x => x.Név.Contains(searchtext.Text))
+                  .Select(x => new { PontosOsztáy = x.PontosOsztály, Név = x.Név, Matematika = x.Matematika, Szorgalom = x.Szorgalom, Nyelvtan = x.Nyelvtan, Irodalom = x.Irodalom, Földrajz = x.Földrajz, Biológia = x.Biológia, Kémia = x.Kémia, Informatika = x.Informatika, Történelem = x.Történelem, Magatartás = x.Magatartás })
+                  .ToList();
+                grades.ItemsSource = srchname;
+            grades.Items.Refresh();
 
         }
 

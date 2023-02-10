@@ -7,10 +7,96 @@
         mc:Ignorable="d"
         Title="Félévi Jegyek" Height="460" Loaded="Window_Loaded" Background="#FFFF7F35" Width="850" ResizeMode="CanMinimize" Cursor="Pen" WindowState="Maximized" WindowStyle="None" >
     <Grid>
-        <DataGrid x:Name="grades" AlternatingRowBackground="#FFFF7F35" AlternationCount="2" HorizontalAlignment="Center" Height="348" Margin="0,76,0,0" VerticalAlignment="Top" d:ItemsSource="{d:SampleData ItemCount=5}" Background="#FFFFA36E" BorderBrush="Black" Width="800"/>
-
-        <Button x:Name="averagebutton" Content="Osztály kiválasztása" HorizontalAlignment="Left" Height="50" Margin="675,15,0,0" VerticalAlignment="Top" Width="150" Click="averagebutton_Click" FontSize="15" Background="White" BorderBrush="#FFFF9254"/>
-        <ComboBox x:Name="selectclass" HorizontalAlignment="Left" Height="50" Margin="586,15,0,0" VerticalAlignment="Top" Width="61" FontSize="15" BorderBrush="#FFFF9254">
+        <DataGrid x:Name="grades" HorizontalAlignment="Center" Height="380" Margin="0,70,0,0" VerticalAlignment="Top" d:ItemsSource="{Binding jegyek}" Background="#FFFFA36E" BorderBrush="{x:Null}" Width="830" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="75" Binding="{Binding Matematika}" Header="Matematika">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Red"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn  Width="75" Binding="{Binding Nyelvtan}" Header="Nyelvtan">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Orange"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="75" Binding="{Binding Irodalom}" Header="Irodalom">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Yellow"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="75" Binding="{Binding Földrajz}" Header="Földrajz">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="DarkGreen"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="75" Binding="{Binding Biológia}" Header="Biológia">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="75" Binding="{Binding Kémia}" Header="Kémia">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Purple"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="75" Binding="{Binding Informatika}" Header="Informatika">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Red"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="75" Binding="{Binding Történelem}" Header="Történelem">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Orange"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="75" Binding="{Binding Szorgalom}" Header="Szorgalom">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Yellow"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="75" Binding="{Binding Magatartás}" Header="Magatartás">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="DarkGreen"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="auto" Binding="{Binding Név}" Header="Név">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Blue"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Width="auto" Binding="{Binding PontosOsztály}" Header="Osztály">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Background" Value="Purple"/>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="averagebutton" Content="Osztály kiválasztása" HorizontalAlignment="Left" Height="50" Margin="675,15,0,0" VerticalAlignment="Top" Width="150" Click="averagebutton_Click" FontSize="15" Background="White" BorderBrush="#FFFF9254" Visibility="Hidden"/>
+        <ComboBox x:Name="selectclass" HorizontalAlignment="Left" Height="50" Margin="586,15,0,0" VerticalAlignment="Top" Width="61" FontSize="15" BorderBrush="#FFFF9254" Visibility="Hidden">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1">
                     <GradientStop Color="#FFF0F0F0"/>
@@ -20,8 +106,8 @@
         </ComboBox>
         <Button x:Name="backbutton" Content="Vissza" HorizontalAlignment="Left" Height="50" Margin="25,15,0,0" VerticalAlignment="Top" Width="150" FontSize="15" Click="backbutton_Click" BorderBrush="#FFFF9254" Background="White"/>
         <Button x:Name="studentbutton" Content="Tanuló kiválasztása" HorizontalAlignment="Left" Height="50" Width="150" FontSize="15" BorderBrush="#FFFF9254" Background="White" Margin="211,15,0,0" VerticalAlignment="Top" Click="studentbutton_Click"/>
-        <ComboBox x:Name="kivalaszto" HorizontalAlignment="Left" Margin="385,18,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="kilepesgomb" Content="Kilépés" HorizontalAlignment="Right" Margin="0,0,45,45" VerticalAlignment="Bottom" Click="kilepesgomb_Click" Background="#FFED0F0F"/>
+        <TextBox x:Name="searchtext" HorizontalAlignment="Left" Height="24" Margin="382,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" BorderBrush="#FFFF7F35"/>
 
     </Grid>
 </Window>

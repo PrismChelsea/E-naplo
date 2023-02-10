@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace E_Naplo
 {
-    internal class Jegyek
+    public class Jegyek
     {
         public int Matematika { get; set; }
         public int Nyelvtan { get; set; }

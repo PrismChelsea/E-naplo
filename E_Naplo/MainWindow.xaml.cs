@@ -28,12 +28,33 @@ namespace E_Naplo
         {
             InitializeComponent();
         }
-
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             foreach (var item in File.ReadAllLines("Tanulók.txt"))
             {
                 enaplo.Add(new ReadIn(item));
+
+                //switch (new ReadIn(item).Sorszám % 6)
+                //{
+                //    case 0:
+                //        datas.RowBackground = new SolidColorBrush(Colors.Red);
+                //        break;
+                //    case 1:
+                //        datas.AlternatingRowBackground = new SolidColorBrush(Colors.Orange);
+                //        break;
+                //    case 2:
+                //        datas.AlternatingRowBackground = new SolidColorBrush(Colors.Yellow);
+                //        break;
+                //    case 3:
+                //        datas.AlternatingRowBackground = new SolidColorBrush(Colors.DarkGreen);
+                //        break;
+                //    case 4:
+                //        datas.AlternatingRowBackground = new SolidColorBrush(Colors.Blue);
+                //        break;
+                //    case 5:
+                //        datas.AlternatingRowBackground = new SolidColorBrush(Colors.Purple);
+                //        break;
+                //}
             }
             datas.ItemsSource = enaplo;
             selectsearch.Items.Add("Név");
